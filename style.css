@@ -1,0 +1,23 @@
+.msg {
+    padding: 15px;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    margin-top: 20px;
+    margin-left: auto;
+    width: 20%;
+}
+
+.msg-alert {
+    background-color: lightgray;
+    color: blue;
+}
+
+.msg-error {
+    background-color: lightcoral;
+    color: darkred;
+}
+
+.msg-success {
+    background-color: lightgreen;
+    color: green;
+}
