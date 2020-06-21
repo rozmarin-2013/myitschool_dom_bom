@@ -3,8 +3,10 @@
     border-radius: 3px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     margin-top: 20px;
-    margin-left: auto;
     width: 20%;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .msg-alert {

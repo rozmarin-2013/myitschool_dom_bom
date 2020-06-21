@@ -13,6 +13,9 @@ function Message(msg, type) {
 
         elm.innerHTML = msg;
 
+        let countMsgElm = document.querySelectorAll('.msg');
+        elm.style.top = elm.style.top + countMsgElm.length * 60 + 'px';
+        
         return elm;
     }
 
@@ -42,12 +45,13 @@ function getParamsUrl(url) {
     if (!url) return null;
 
     let result = [],
-        regexType = /type=([^&]*)/,
-        regexMsg = /msg=([^&]*)/;
+        searchType = url.match(/type=([^&]*)/),
+        searchMsg = url.match(/msg=([^&]*)/);
+
 
     result = {
-        type: url.match(regexType)[1],
-        msg: url.match(regexMsg)[1]
+        type: searchType && searchType[1],
+        msg: searchMsg && searchMsg[1]
     }
 
     return result;
@@ -60,17 +64,13 @@ const typeMsg = [
 ];
 
 function checkParams(params) {
-    if(!params) return false;
 
-    if(typeMsg.indexOf(params['type']) == -1) {
-        return false;
-    }
+    return (!!(params &&
+        params['type'] &&
+        params['msg'] &&
+        typeMsg.indexOf(params['type']) !== -1
+    ));
 
-    if(!params['msg']) {
-        return false;
-    }
-
-    return true;
 }
 
 function getMessageByLink() {
